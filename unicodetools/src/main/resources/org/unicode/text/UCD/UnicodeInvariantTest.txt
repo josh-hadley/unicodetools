@@ -440,6 +440,16 @@ Show [\u20b9]
 Let $nonAlphabeticBindus = []
 [\p{InSc=Bindu} - $nonAlphabeticBindus - \p{Alphabetic}] = [] 
 
+# In UTC 172 discussion of Properties Feedback & Recommendations item UCD2 suggested an invariant test:
+# "If a character has a decomposition mapping to one that is Soft_Dotted, then the source character should also be Soft_Dotted."
+# per Mark:
+# For each character C in \p{Soft_Dotted=Yes}
+#   Compute A by mapping C to a string with dm, then filtering out all the ccc≠0 characters, then map each remaining character to its Soft_Dotted value
+#   Compute B by mapping C to its Soft_Dotted value
+#   Check that A = B
+
+In \p{Soft_Dotted=Yes} Soft_Dotted \P{ccc=0} dm = Soft_Dotted
+
 ##########################
 # LineBreak property
 ##########################
